@@ -58,4 +58,18 @@ document.getElementById('genero').addEventListener('change', filtrarProductos);
 
 renderizarProductos();
 
-
+document.addEventListener('DOMContentLoaded', function() {
+    const contactButtons = document.querySelectorAll('.contact-button');
+    
+    contactButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const producto = this.dataset.producto;
+            const autor = this.dataset.autor;
+            const user = this.dataset.user;
+            const correo = this.dataset.correo;
+            
+            const queryString = `?nombre=${producto}&autor=${autor}&user=${user}&correo=${correo}`;
+            window.location.href = 'contactar.html' + queryString;
+        });
+    });
+});

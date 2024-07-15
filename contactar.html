@@ -84,21 +84,7 @@
     <script src="/js/funciones.js"></script>
     <script src="/js/usuarios.js"></script>
     <script src="/js/productos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            document.getElementById('nombre').value = urlParams.get('nombre');
-            document.getElementById('autor').value = urlParams.get('autor');
-            document.getElementById('user').value = urlParams.get('user');
-            document.getElementById('correo').value = urlParams.get('correo');
-            
-            document.getElementById('contactForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const correo = document.getElementById('correo').value;
-                const mensaje = document.getElementById('mensaje').value;
-                window.location.href = `mailto:${correo}?subject=Interés en ${urlParams.get('nombre')}&body=${mensaje}`;
-            });
-        });
-    </script>
+    <script src="/js/contactar.js"></script>
+   
 </body>
 </html>
