@@ -1,9 +1,10 @@
-
+// informacion que se trae de productos js
 function renderizarProductos(productosARenderizar = productos) {
     const contenedorProductos = document.getElementById('productos');
     contenedorProductos.innerHTML = '';
     productosARenderizar.forEach(producto => {
         
+        // creacion de variable con datos traidos de productos
         let site = `
             detalles.html?nombre=${producto.nombre}
             &img=${producto.fotos.principal}
@@ -16,7 +17,7 @@ function renderizarProductos(productosARenderizar = productos) {
             &autor=${producto.autor}
         
         `;
-
+        // variable que manda informacion a contactar js html
         let usuario = `contactar.html?nombre=${producto.nombre}
         &autor=${producto.autor}
         &img=${producto.fotos.miniatura}
@@ -40,7 +41,7 @@ function renderizarProductos(productosARenderizar = productos) {
         contenedorProductos.appendChild(productoDiv);
     });
 }
-
+// filtro de busqueda y genero
 function filtrarProductos() {
     const terminoBusqueda = document.getElementById('buscador').value.toLowerCase();
     const generoSeleccionado = document.getElementById('genero').value.toLowerCase();

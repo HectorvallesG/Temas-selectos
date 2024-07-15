@@ -1,3 +1,4 @@
+// funcion para dashbord
 function toggleMenu() {
     var dashboard = document.getElementById('dashboard');
     if (dashboard.style.display === 'block') {

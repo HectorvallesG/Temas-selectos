@@ -1,3 +1,4 @@
+// creacion de div para agregar informacion del libro
 const searchParams = new URLSearchParams(window.location.search);
 
 for (const param of searchParams) {

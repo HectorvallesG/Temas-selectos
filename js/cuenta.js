@@ -1,3 +1,5 @@
+// cuenta y libros intercambiados
+
 document.addEventListener('DOMContentLoaded', function() {
     const usuario = {
         nombre: "Hector",
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+    // funcion verificar datos cuenta
     function actualizarInformacionUsuario() {
         document.getElementById('nombre-usuario').innerText = usuario.nombre;
         document.getElementById('correo-usuario').innerText = usuario.correo;
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     actualizarInformacionUsuario();
 
+    // creacion clase libros interambiados e insercion 
     const listaLibros = document.getElementById('lista-libros');
     librosIntercambiados.forEach(libro => {
         const libroDiv = document.createElement('div');
@@ -43,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         listaLibros.appendChild(libroDiv);
     });
 
+    // estructura de editar y verificacion
     document.getElementById('editar-btn').addEventListener('click', () => {
         document.getElementById('info-usuario').style.display = 'none';
         document.getElementById('editar-info-usuario').style.display = 'block';
@@ -95,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+                // PANTALLA MIS PUBLICACIONES
+    // insercion y actualizacion de los libros publicados
     function actualizarListaPublicaciones() {
         const listaPublicaciones = document.getElementById('lista-publicaciones');
         listaPublicaciones.innerHTML = '';
@@ -120,12 +127,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // guardar publicacion de nuevo libro
     function guardarPublicaciones() {
         localStorage.setItem(publicacionesKey, JSON.stringify(publicaciones));
     }
 
     actualizarListaPublicaciones();
-
+    // verificacion informacion agregada
     document.getElementById('agregar-btn').addEventListener('click', () => {
         document.getElementById('publicaciones-usuario').style.display = 'none';
         document.getElementById('editar-publicacion').style.display = 'block';

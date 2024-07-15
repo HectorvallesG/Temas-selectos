@@ -1,3 +1,5 @@
+// produtos para tienda
+
 const productos = [
     {
         id: 1,

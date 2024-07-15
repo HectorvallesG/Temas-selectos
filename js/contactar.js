@@ -1,3 +1,4 @@
+// creacion y insercion de informacion de contacto
 document.addEventListener('DOMContentLoaded', function() {
     const tiendaContainer = document.getElementById('tienda-container');
     
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// llenado de mensaje de contacto 
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById('nombre').value = urlParams.get('nombre');

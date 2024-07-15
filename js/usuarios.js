@@ -1,3 +1,4 @@
+// usuarios para login
 const usuario = [
     {
         id: 1,
@@ -111,7 +112,7 @@ const usuario = [
     },
 ];
 
-
+// verificacion de usuario para login 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = usuario;
 } else {
