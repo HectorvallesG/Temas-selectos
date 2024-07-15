@@ -8,51 +8,7 @@
     <script src="https://kit.fontawesome.com/79e5f91e0b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Asumimos que el usuario actual es el primer usuario en usuarios.js
-            const usuarioActual = usuarios[0];
-            const productosUsuario = productos.filter(producto => producto.user === usuarioActual.usuario);
-
-            document.getElementById('nombre-usuario').innerText = usuarioActual.usuario;
-            document.getElementById('correo-usuario').innerText = usuarioActual.correo;
-            document.getElementById('telefono-usuario').innerText = usuarioActual.telefono;
-
-            // Renderizar productos del usuario actual
-            renderizarProductos(productosUsuario);
-        });
-
-        function renderizarProductos(productos) {
-            const productosContainer = document.getElementById('productos');
-            productosContainer.innerHTML = '';
-            productos.forEach(producto => {
-                const productoDiv = document.createElement('div');
-                productoDiv.classList.add('producto');
-
-                const img = document.createElement('img');
-                img.src = producto.imagen;
-                img.alt = producto.nombre;
-                productoDiv.appendChild(img);
-
-                const nombre = document.createElement('h3');
-                nombre.innerText = producto.nombre;
-                productoDiv.appendChild(nombre);
-
-                const descripcion = document.createElement('p');
-                descripcion.innerText = producto.descripcion;
-                productoDiv.appendChild(descripcion);
-
-                const botonContactar = document.createElement('button');
-                botonContactar.innerText = 'Contactar';
-                botonContactar.addEventListener('click', () => {
-                    window.location.href = `contactar.html?user=${producto.user}&libro=${producto.nombre}&detalles=${producto.descripcion}`;
-                });
-                productoDiv.appendChild(botonContactar);
-
-                productosContainer.appendChild(productoDiv);
-            });
-        }
-    </script>
+    
 </head>
 <body>
     <header class="header">
@@ -83,25 +39,32 @@
         </nav>
     </div>
 
-    <div class="container">
-        <section class="info">
-            <div class="detalle">
-                <div class="detalle-imagen">
-                    <img src="images/user-profile.jpg" alt="Foto de Perfil">
-                </div>
-                <div class="detalle-info">
-                    <h2 id="nombre-usuario">Nombre del Usuario</h2>
-                    <p><b>Correo Electrónico:</b> <span id="correo-usuario">usuario@example.com</span></p>
-                    <p><b>Teléfono:</b> <span id="telefono-usuario">+34 123 456 789</span></p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="productos">
-            <h2>Mis Libros</h2>
-            <div id="productos"></div>
-        </section>
-    </div>
+    <section id="info-usuario">
+        <h2>Información del Usuario</h2>
+        <p><strong>Nombre:</strong> <span id="nombre-usuario"></span></p>
+        <p><strong>Correo:</strong> <span id="correo-usuario"></span></p>
+        <p><strong>Teléfono:</strong> <span id="telefono-usuario"></span></p>
+        <button id="editar-btn">Editar Información</button>
+    </section>
+
+    <section id="editar-info-usuario" style="display: none;">
+        <h2>Editar Información del Usuario</h2>
+        <form id="editar-form">
+            <label for="editar-nombre">Nombre:</label>
+            <input type="text" id="editar-nombre" name="nombre" required><br>
+            <label for="editar-correo">Correo:</label>
+            <input type="email" id="editar-correo" name="correo" required><br>
+            <label for="editar-telefono">Teléfono:</label>
+            <input type="tel" id="editar-telefono" name="telefono" required><br>
+            <button type="submit">Guardar Cambios</button>
+            <button type="button" id="cancelar-btn">Cancelar</button>
+        </form>
+    </section>
+
+    <section id="libros-intercambiados">
+        <h2>Libros Intercambiados</h2>
+        <div id="lista-libros"></div>
+    </section>
 
   
     <footer class="footer">
@@ -121,8 +84,8 @@
     </footer>
 
     <script src="/js/funciones.js"></script>
-    <script src="/js/usuarios.js"></script>
-    <script src="/js/productos.js"></script>
+    <script src="/js/cuenta.js"></script>
+    
     
 </body>
 </html>

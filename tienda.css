@@ -152,6 +152,12 @@ header, footer {
     align-items: center;
     padding: 20px;
     flex-wrap: wrap;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-logo h1 {
@@ -194,7 +200,7 @@ header, footer {
     margin-right: 20px;
 }
 
-/* Estilos adicionales del archivo CSS proporcionado */
+
 header h1, footer h1 {
     font-family: 'Carattere', cursive;
     font-size: 2em;
@@ -482,36 +488,172 @@ h1 {
 
 /* Mi cuenta */
 
-.contacto form {
+section {
+    margin-bottom: 2rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#info-usuario p, #info-usuario h2 {
+    margin: 0.5rem 0;
+}
+
+#info-usuario p {
+    font-size: 1rem;
+}
+
+#info-usuario strong {
+    color: #555;
+}
+
+#libros-intercambiados {
+    padding: 1rem 0;
+}
+
+.libro {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+}
+
+.libro:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.libro img {
+    max-width: 80px;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+
+.libro h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.libro p {
+    padding-left: 15px;
+    margin: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.libro p b {
+    color: #555;
+}
+
+
+
+
+
+/* mis publicaciones */
+
+#publicaciones-usuario {
+    padding: 1rem 0;
+}
+
+.publicacion {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.publicacion:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.publicacion img {
+    max-width: 80px;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+
+.publicacion h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.publicacion p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.publicacion p b {
+    color: #555;
+}
+
+form textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+#cancelar-btn {
+    background-color: #a00;
+}
+
+#cancelar-btn:hover {
+    background-color: #c00;
+}
+
+.btn-publicacion {
+    padding-left: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 20px 0;
 }
 
-.contacto label {
-    font-weight: bold;
+form label {
+    margin: 0.5rem 0 0.2rem 0;
 }
 
-.contacto input, .contacto textarea {
-    padding: 10px;
-    font-size: 16px;
+form input,
+form textarea {
+    padding: 0.5rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
 
-.contacto button {
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+form button {
+    align-self: flex-start;
+    margin-top: 1rem;
 }
 
-.contacto button:hover {
-    background-color: #333;
+#cancelar-btn {
+    background-color: #a00;
+}
+
+#cancelar-btn:hover {
+    background-color: #c00;
 }
 
 /* contactar  */
@@ -539,15 +681,4 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-button {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #555;
-}
+
