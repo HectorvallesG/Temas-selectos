@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+    <link rel="stylesheet" href="tienda.css">
+    <script src="https://kit.fontawesome.com/79e5f91e0b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const usuarioNombre = urlParams.get('user');
+            const libro = urlParams.get('libro');
+            const detalles = urlParams.get('detalles');
+            const usuario = usuarios.find(u => u.usuario === usuarioNombre);
+
+            if (usuario) {
+                document.getElementById('nombre-usuario').innerText = usuario.usuario;
+                document.getElementById('correo-usuario').innerText = usuario.correo;
+                document.getElementById('telefono-usuario').innerText = usuario.telefono;
+                document.getElementById('nombre-libro').innerText = libro;
+                document.getElementById('detalles-libro').innerText = detalles;
+                document.getElementById('user').value = usuario.usuario;
+                document.getElementById('libro').value = libro;
+                document.getElementById('detalles').value = detalles;
+            } else {
+                document.getElementById('mensaje-error').innerText = 'Usuario no encontrado.';
+                document.getElementById('form-contactar').style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <a href="tienda.html"><h1>PasaElLibro</h1></a>
+            </div>
+        </div>
+
+        <div>
+            <h2>CONTACTAR</h2>
+        </div>
+        
+        <div class="header-right">
+            <div class="logout">
+                <a href="login.html"><i class="fas fa-power-off fa-xl" ></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div id="dashborn" class="dashborn">
+        <!-- Contenido del dashborn -->
+        <nav>
+            <a href="#"><li>Mi Cuenta</li></a>
+            <a href="#"><li>Mis Publicaciones</li></a>
+            <a href="#"><li>Preguntas Freguentes</li></a>
+            <a href="#"><li>Noticias y Actualizaciones</li></a>
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <section class="contacto">
+            <h2>Contactar a Usuario</h2>
+            <p id="mensaje-error" style="color: red;"></p>
+            <form id="form-contactar" action="enviar_mensaje.html" method="get">
+                <label for="nombre-usuario">Usuario:</label>
+                <p id="nombre-usuario">Nombre del Usuario</p>
+                
+                <label for="correo-usuario">Correo Electrónico:</label>
+                <p id="correo-usuario">correo@example.com</p>
+                
+                <label for="telefono-usuario">Teléfono:</label>
+                <p id="telefono-usuario">+34 123 456 789</p>
+                
+                <label for="nombre-libro">Libro:</label>
+                <p id="nombre-libro">Título del Libro</p>
+                
+                <label for="detalles-libro">Detalles:</label>
+                <p id="detalles-libro">Detalles del Libro</p>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <input type="hidden" id="user" name="user">
+                <input type="hidden" id="libro" name="libro">
+                <input type="hidden" id="detalles" name="detalles">
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <a href="tienda.html"><h1>PasaElLibro</h1></a>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <div>
+                <nav class="ligas">
+                    <a href="negocio/nosotros.html"><li>Sobre Nosotros</li></a>
+                    <a href="negocio/preguntasFrecuentes.html"><li>Preguntas Frecuentes</li></a>
+                    <a href="tienda.html"><li>Inicio</li></a>
+                </nav>
+            </div>
+        </div>
+   </footer>
+
+    <script src="/js/funciones.js"></script>
+    <script src="/js/usuarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros</title>
+    <link rel="stylesheet" href="/tienda.css">
+    <script src="https://kit.fontawesome.com/79e5f91e0b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asumimos que el usuario actual es el primer usuario en usuarios.js
+            const usuarioActual = usuarios[0];
+            const productosUsuario = productos.filter(producto => producto.user === usuarioActual.usuario);
+
+            // Renderizar productos del usuario actual
+            renderizarProductos(productosUsuario);
+        });
+
+        function renderizarProductos(productos) {
+            const productosContainer = document.getElementById('productos');
+            productosContainer.innerHTML = '';
+            productos.forEach(producto => {
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('producto');
+
+                const img = document.createElement('img');
+                img.src = producto.imagen;
+                img.alt = producto.nombre;
+                productoDiv.appendChild(img);
+
+                const nombre = document.createElement('h3');
+                nombre.innerText = producto.nombre;
+                productoDiv.appendChild(nombre);
+
+                const descripcion = document.createElement('p');
+                descripcion.innerText = producto.descripcion;
+                productoDiv.appendChild(descripcion);
+
+                const botonContactar = document.createElement('button');
+                botonContactar.innerText = 'Contactar';
+                botonContactar.addEventListener('click', () => {
+                    window.location.href = `contactar.html?user=${producto.user}`;
+                });
+                productoDiv.appendChild(botonContactar);
+
+                productosContainer.appendChild(productoDiv);
+            });
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <a href="/tienda.html"><h1>PasaElLibro</h1></a>
+            </div>
+        </div>
+        <div>
+            <h2>MIS PUBLICACIONES</h2>
+        </div>
+        <div class="header-right">
+            <div class="logout">
+                <a href="/login.html"><i class="fas fa-power-off fa-xl" ></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div id="dashborn" class="dashborn">
+        <nav>
+            <a href="#"><li>Mi Cuenta</li></a>
+            <a href="publicaciones.html"><li>Mis Publicaciones</li></a>
+            <a href="/negocio/preguntasFrecuentes.html"><li>Preguntas Frecuentes</li></a>
+            <a href="/negocio/noticias.html"><li>Noticias y Actualizaciones</li></a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <section class="productos">
+            <h2>Mis Libros</h2>
+            <div id="productos"></div>
+        </section>
+    </div>
+  
+    <footer class="footer">
+        <div>
+            <a href="/tienda.html"><h1>PasaElLibro</h1></a>
+        </div>
+        <div>
+            <h3>Nosotros</h3>
+            <div>
+                <nav class="ligas">
+                    <a href="/negocio/nosotros.html"><li>Sobre Nosotros</li></a>
+                    <a href="/negocio/"><li>Preguntas Frecuentes</li></a>
+                    <a href="/tienda.html"><li>Inicio</li></a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/funciones.js"></script>
+    <script src="/js/usuarios.js"></script>
+    <script src="/js/productos.js"></script>
+    
+</body>
+</html>
